@@ -31,10 +31,7 @@ logger = logging.getLogger(__name__)
 def page_not_found(request, **kwargs):
     error = sys.exc_value
 
-    path = request.path
-
-    if request.path and re.match('^[><]', request.path):
-        path = "Page"
+    path = replace('[^\da-zA-Z\-_]', '', request.path)
 
     if len(error.args):
         error = error.args[0]
