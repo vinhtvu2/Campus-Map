@@ -33,7 +33,7 @@ def page_not_found(request, **kwargs):
 
     path = request.path
 
-    if request.path and not re.match('^[\/\da-zA-Z\-_]', request.path):
+    if request.path and re.match('^[><]', request.path):
         path = "Page"
 
     if len(error.args):
