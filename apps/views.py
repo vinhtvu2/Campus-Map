@@ -31,14 +31,19 @@ logger = logging.getLogger(__name__)
 def page_not_found(request, **kwargs):
     error = sys.exc_value
 
+    path = request.path
+
+    if request.path and not re.match('^[\/\da-zA-Z\-_]', request.path):
+        path = "Page"
+
     if len(error.args):
         error = error.args[0]
     if hasattr(error, 'get'):
-        error = "<code>%s</code> could not be found." % (error.get('path', request.path))
+        error = "<code>%s</code> could not be found." % (error.get('path', path))
     if not isinstance(error, unicode):
         error = error.__unicode__()
     if not bool(error):
-        error = "<code>%s</code> could not be found." % (request.path)
+        error = "<code>%s</code> could not be found." % (path)
 
     if request.is_json():
         msg = {"error": strip_tags(error)}
