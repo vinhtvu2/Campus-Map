@@ -138,6 +138,15 @@ class ElectricChargingStationAdmin(admin.ModelAdmin):
     form = ElectricChargingStationAdminForm
 admin.site.register(campus.models.ElectricChargingStation, ElectricChargingStationAdmin)
 
+class MotorcycleParkingAdminForm(MapObjForm):
+    class Meta:
+        model = campus.models.MotorcycleParking
+
+
+class MotorcycleParkingAdmin(admin.ModelAdmin):
+    form = MotorcycleParkingAdminForm
+admin.site.register(campus.models.MotorcycleParking, MotorcycleParkingAdmin)
+
 
 class EmergencyAEDAdminForm(MapObjForm):
     class Meta:

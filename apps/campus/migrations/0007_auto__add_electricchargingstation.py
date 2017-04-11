@@ -19,6 +19,18 @@ class Migration(SchemaMigration):
         # Deleting model 'ElectricChargingStation'
         db.delete_table(u'campus_electricchargingstation')
 
+    def forwards(self, orm):
+    # Adding model 'MotorcycleParking'
+    db.create_table(u'campus_motorcycleparking', (
+        (u'mapobj_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['campus.MapObj'], unique=True, primary_key=True)),
+    ))
+    db.send_create_signal(u'campus', ['MotorcycleParking'])
+
+
+    def backwards(self, orm):
+        # Deleting model 'MotorcycleParking'
+        db.delete_table(u'campus_motorcycleparking')
+
 
     models = {
         u'campus.bikerack': {
@@ -43,6 +55,10 @@ class Migration(SchemaMigration):
         u'campus.electricchargingstation': {
             'Meta': {'ordering': "('name',)", 'object_name': 'ElectricChargingStation', '_ormbases': [u'campus.MapObj']},
             u'mapobj_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['campus.MapObj']", 'unique': 'True', 'primary_key': 'True'})
+        },
+        u'campus.motorcycleparking': {
+        'Meta': {'ordering': "('name',)", 'object_name': 'MotorcycleParking', '_ormbases': [u'campus.MapObj']},
+        u'mapobj_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['campus.MapObj']", 'unique': 'True', 'primary_key': 'True'})
         },
         u'campus.emergencyphone': {
             'Meta': {'ordering': "('name',)", 'object_name': 'EmergencyPhone', '_ormbases': [u'campus.MapObj']},

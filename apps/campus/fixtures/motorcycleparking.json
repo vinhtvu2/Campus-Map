@@ -1,0 +1,53 @@
+[
+    {
+        "pk": "moto-1",
+        "model": "campus.mapobj",
+        "fields": {
+            "content_type": [
+                "campus",
+                "motorcycleparking"
+            ],
+            "googlemap_point": "[28.604274, -81.198515]",
+            "description": "Memory Mall"
+        }
+    },
+    {
+        "pk": "moto-2",
+        "model": "campus.mapobj",
+        "fields": {
+            "content_type": [
+                "campus",
+                "motorcycleparking"
+            ],
+            "googlemap_point": "[28.599613, -81.205016]",
+            "description": "Parking Garage A"
+        }
+    },
+    {
+        "pk": "moto-3",
+        "model": "campus.mapobj",
+        "fields": {
+            "content_type": [
+                "campus",
+                "motorcycleparking"
+            ],
+            "googlemap_point": "[28.596836, -81.203086]",
+            "description": "Visitor Information Center"
+        }
+    },
+    {
+        "pk": "moto-1",
+        "model": "campus.motorcycleparking",
+        "fields": {}
+    },
+    {
+        "pk": "moto-2",
+        "model": "campus.motorcycleparking",
+        "fields": {}
+    },
+    {
+        "pk": "moto-3",
+        "model": "campus.motorcycleparking",
+        "fields": {}
+    }
+]
